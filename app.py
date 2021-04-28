@@ -3,8 +3,13 @@ from flask import jsonify
 import json
 import mysql.connector
 from mysql.connector import Error
+import math
 
-app=Flask(__name__)
+app=Flask(
+  __name__,
+  static_folder="static",
+  static_url_path="/"
+) 
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 app.config['JSON_SORT_KEYS'] = False
@@ -33,51 +38,98 @@ def booking():
 def thankyou():
 	return render_template("thankyou.html")
 
+
 # Part 1 - 2：開發旅遊景點 API
-
- 
-
 @app.route("/api/attractions")
 def get_attractions():
 	try:
-		page = request.args.get("page")
-		page = int(page)
+		page = int(request.args.get("page"))
+		keyword = request.args.get("keyword")
 		spotRangeStart = 1+(page-1)*12
 		spotRangeEnd = page*12
-		sql = "SELECT * FROM attractions WHERE id BETWEEN '%s' AND '%s';"
-		val = (spotRangeStart, spotRangeEnd, )
-		mycursor.execute(sql, val)
-		spotResult = mycursor.fetchall()
 
-		spotLists12 = []
-		for i in range(len(spotResult)):
-			id = spotResult[i][0]
-			name = spotResult[i][1]
-			category = spotResult[i][2]
-			description = spotResult[i][3]
-			address = spotResult[i][4]
-			transport = spotResult[i][5]
-			mrt = spotResult[i][6]
-			latitude = spotResult[i][7]
-			longitude = spotResult[i][8]
-			images = spotResult[i][9]
-			spotLists = {
-				"id":id, 
-				"name":name, 
-				"category":category, 
-				"description":description, 
-				"address":address, 
-				"transport":transport, 
-				"mrt":mrt, 
-				"latitude":latitude, 
-				"longitude":longitude, 
-				"images":images
-				}
-			spotLists12.append(spotLists)
-		if page < 27:
-			nextPage = page+1
-		else:
-			nextPage = None
+		if keyword==None:
+
+			sql = "SELECT * FROM attractions WHERE id BETWEEN '%s' AND '%s';"
+			val = (spotRangeStart, spotRangeEnd, )
+			mycursor.execute(sql, val)
+			spotResult = mycursor.fetchall()
+
+			spotLists12 = []
+			for i in range(len(spotResult)):
+				id = spotResult[i][0]
+				name = spotResult[i][1]
+				category = spotResult[i][2]
+				description = spotResult[i][3]
+				address = spotResult[i][4]
+				transport = spotResult[i][5]
+				mrt = spotResult[i][6]
+				latitude = spotResult[i][7]
+				longitude = spotResult[i][8]
+				images = spotResult[i][9]
+				spotLists = {
+					"id":id, 
+					"name":name, 
+					"category":category, 
+					"description":description, 
+					"address":address, 
+					"transport":transport, 
+					"mrt":mrt, 
+					"latitude":latitude, 
+					"longitude":longitude, 
+					"images":images
+					}
+				spotLists12.append(spotLists)
+
+				if page < 27:
+					nextPage = page+1
+				else:
+					nextPage = None
+
+			
+
+		elif keyword != None:
+
+			sql = "SELECT * FROM attractions WHERE (id BETWEEN %s AND %s) AND (name LIKE %s OR category LIKE %s OR description LIKE %s OR address LIKE %s OR mrt LIKE %s) ;"
+			
+			keyword = "%"+keyword+"%"
+			
+			val = (spotRangeStart, spotRangeEnd, keyword, keyword, keyword, keyword, keyword, ) 
+			mycursor.execute(sql,val)
+			spotResult = mycursor.fetchall()
+
+			spotLists12 = []
+			for i in range(len(spotResult)):
+				id = spotResult[i][0]
+				name = spotResult[i][1]
+				category = spotResult[i][2]
+				description = spotResult[i][3]
+				address = spotResult[i][4]
+				transport = spotResult[i][5]
+				mrt = spotResult[i][6]
+				latitude = spotResult[i][7]
+				longitude = spotResult[i][8]
+				images = spotResult[i][9]
+				spotLists = {
+					"id":id, 
+					"name":name, 
+					"category":category, 
+					"description":description, 
+					"address":address, 
+					"transport":transport, 
+					"mrt":mrt, 
+					"latitude":latitude, 
+					"longitude":longitude, 
+					"images":images
+					}
+				spotLists12.append(spotLists)
+
+
+			if len(spotResult)>12:
+				nextPage = len(spotResult)/12+1
+			else:
+				nextPage = None
+
 		searchResult = {
 			"nextPage":nextPage,
 			"data":spotLists12
