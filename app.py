@@ -3,18 +3,14 @@ from flask import jsonify
 import json
 import mysql.connector
 from mysql.connector import Error
-<<<<<<< HEAD
 
-app=Flask(__name__)
-=======
-import math
 
 app=Flask(
   __name__,
   static_folder="static",
   static_url_path="/"
 ) 
->>>>>>> 355e33a565e5a4bc2ce598a22878e5aaa04be7a4
+
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 app.config['JSON_SORT_KEYS'] = False
@@ -43,15 +39,12 @@ def booking():
 def thankyou():
 	return render_template("thankyou.html")
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 355e33a565e5a4bc2ce598a22878e5aaa04be7a4
 # Part 1 - 2：開發旅遊景點 API
 @app.route("/api/attractions")
 def get_attractions():
 	try:
-<<<<<<< HEAD
+
 		page = request.args.get("page")
 		page = int(page)
 		spotRangeStart = 1+(page-1)*12
@@ -90,7 +83,7 @@ def get_attractions():
 			nextPage = page+1
 		else:
 			nextPage = None
-=======
+
 		page = int(request.args.get("page"))
 		keyword = request.args.get("keyword")
 		spotRangeStart = 1+(page-1)*12
@@ -178,7 +171,6 @@ def get_attractions():
 			else:
 				nextPage = None
 
->>>>>>> 355e33a565e5a4bc2ce598a22878e5aaa04be7a4
 		searchResult = {
 			"nextPage":nextPage,
 			"data":spotLists12
