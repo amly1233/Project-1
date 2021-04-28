@@ -10,6 +10,10 @@ app=Flask(
   static_folder="static",
   static_url_path="/"
 ) 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 53fd3e4aabdad8f8a669add6f40cb2fee2a680b1
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 app.config['JSON_SORT_KEYS'] = False
@@ -43,6 +47,49 @@ def thankyou():
 @app.route("/api/attractions")
 def get_attractions():
 	try:
+<<<<<<< HEAD
+=======
+
+		page = request.args.get("page")
+		page = int(page)
+		spotRangeStart = 1+(page-1)*12
+		spotRangeEnd = page*12
+		sql = "SELECT * FROM attractions WHERE id BETWEEN '%s' AND '%s';"
+		val = (spotRangeStart, spotRangeEnd, )
+		mycursor.execute(sql, val)
+		spotResult = mycursor.fetchall()
+
+		spotLists12 = []
+		for i in range(len(spotResult)):
+			id = spotResult[i][0]
+			name = spotResult[i][1]
+			category = spotResult[i][2]
+			description = spotResult[i][3]
+			address = spotResult[i][4]
+			transport = spotResult[i][5]
+			mrt = spotResult[i][6]
+			latitude = spotResult[i][7]
+			longitude = spotResult[i][8]
+			images = spotResult[i][9]
+			spotLists = {
+				"id":id, 
+				"name":name, 
+				"category":category, 
+				"description":description, 
+				"address":address, 
+				"transport":transport, 
+				"mrt":mrt, 
+				"latitude":latitude, 
+				"longitude":longitude, 
+				"images":images
+				}
+			spotLists12.append(spotLists)
+		if page < 27:
+			nextPage = page+1
+		else:
+			nextPage = None
+
+>>>>>>> 53fd3e4aabdad8f8a669add6f40cb2fee2a680b1
 		page = int(request.args.get("page"))
 		keyword = request.args.get("keyword")
 
