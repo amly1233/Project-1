@@ -3,7 +3,7 @@ from flask import jsonify
 import json
 import mysql.connector
 from mysql.connector import Error
-import math
+
 
 app=Flask(
   __name__,
@@ -45,11 +45,11 @@ def get_attractions():
 	try:
 		page = int(request.args.get("page"))
 		keyword = request.args.get("keyword")
-		spotRangeStart = 1+(page-1)*12
-		spotRangeEnd = page*12
+
 
 		if keyword==None:
-
+			spotRangeStart = 1+(page-1)*12
+			spotRangeEnd = page*12
 			sql = "SELECT * FROM attractions WHERE id BETWEEN '%s' AND '%s';"
 			val = (spotRangeStart, spotRangeEnd, )
 			mycursor.execute(sql, val)
@@ -90,11 +90,11 @@ def get_attractions():
 
 		elif keyword != None:
 
-			sql = "SELECT * FROM attractions WHERE (id BETWEEN %s AND %s) AND (name LIKE %s OR category LIKE %s OR description LIKE %s OR address LIKE %s OR mrt LIKE %s) ;"
+			sql = "SELECT * FROM attractions WHERE (name LIKE %s OR category LIKE %s OR description LIKE %s OR address LIKE %s OR mrt LIKE %s) LIMIT %s, 13 ;"
 			
 			keyword = "%"+keyword+"%"
-			
-			val = (spotRangeStart, spotRangeEnd, keyword, keyword, keyword, keyword, keyword, ) 
+			offset = page *12
+			val = (keyword, keyword, keyword, keyword, keyword, offset) 
 			mycursor.execute(sql,val)
 			spotResult = mycursor.fetchall()
 
@@ -125,8 +125,9 @@ def get_attractions():
 				spotLists12.append(spotLists)
 
 
-			if len(spotResult)>12:
-				nextPage = len(spotResult)/12+1
+			if len(spotResult)==13:
+				nextPage = page+1
+				spotLists12.pop()
 			else:
 				nextPage = None
 
