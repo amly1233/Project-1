@@ -3,13 +3,20 @@ from flask import jsonify
 import json
 import mysql.connector
 from mysql.connector import Error
-
+# from flask_cors import CORS, cross_origin
 
 app=Flask(
   __name__,
   static_folder="static",
   static_url_path="/"
 ) 
+# CORS(app)
+# cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+
+# app.config['CORS HEADERS']='Content-Type'
+
+
+
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 app.config['JSON_SORT_KEYS'] = False
@@ -24,10 +31,20 @@ mydb = mysql.connector.connect(
 )
 mycursor=mydb.cursor()
 
+
+
+
+# @app.route("/api/v1/users")
+# def list_users():
+#   return "user example"
+
 # Pages
 @app.route("/")
 def index():
 	return render_template("index.html")
+
+# @cross_origin()
+
 @app.route("/attraction/<id>")
 def attraction(id):
 	return render_template("attraction.html")
