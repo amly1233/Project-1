@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- 手機的瀏覽器不要對網頁做任意縮放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Taipei-Trip-台北一日遊</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'styles.css')}}">
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet"> 
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+
+
+</head>
+<body>
+    <section class=navSection>
+        <nav>
+            <h1 class="navTitle" id="navTitle">台北一日遊</h1>
+            <ul class="navBtn">
+              <li>預定行程</li>
+              <li>登入/註冊</li>
+            </ul>
+        </nav>
+    </section>
+
+
+    <section class="hero">
+        <div class="slogan-search-container">
+        <div class="slogan-container">
+            <h2 class="slogan" id="slogan1">輕鬆享受台北一日悠閒</h2>
+            <p class="slogan" id="slogan2">探索每個角落，體驗城市的深度旅遊行程</p>
+        </div>
+        <div class="search-container">
+            <form action="/" class="search-form" id="searchForm">
+                <input type="text" placeholder="輸入景點名稱查詢" class="search-input" id="keyword">
+                <button type="submit" onClick='click' class="search-btn"  id="search-btn">
+                    <img id ="search-img" src="{{url_for('static',filename = 'img/icon_search.png')}}" alt="">
+                    
+                </button>
+            </form>
+        </div>
+        </div>
+        <img id ="memorialＨall" src="{{url_for('static',filename = 'img/welcome.png')}}" alt=""> 
+
+        
+    </section>
+
+    <section class="attractions" id="attractions">
+
+    </section>
+    <footer>
+        <div id="footer">
+            COPYRIGHT © 2021 台北一日遊   
+        </div>
+    </footer>
+  
+    <script src="{{url_for('static',filename = 'script.js')}}" charset="utf-8"></script>
+    
+    
+</body>
+</html>
