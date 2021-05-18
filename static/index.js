@@ -38,8 +38,13 @@ function getDataByPage(){
         img = img[1].split(" ",2);
         img = img[0].slice(0,-2);
   
+        // Create a box
         let container=document.createElement("div");
         container.className="attractionContainer";
+
+        // Create a link for each spot
+        let spotlink = document.createElement("a");
+        spotlink.href =  "/attraction/"+result["data"][i]["id"];
   
         let image = document.createElement("img");
         image.className="attractionImg";
@@ -64,9 +69,10 @@ function getDataByPage(){
         let element=document.getElementById("attractions");
       
         element.appendChild(container);
-        container.appendChild(image);
-        container.appendChild(spotName);
-        container.appendChild(category_mrt);
+        container.appendChild(spotlink);
+        spotlink.appendChild(image);
+        spotlink.appendChild(spotName);
+        spotlink.appendChild(category_mrt);
         category_mrt.appendChild(mrt);
         category_mrt.appendChild(category);
       }
@@ -89,3 +95,9 @@ btn.addEventListener('click',(event)=>{
   document.getElementById('attractions').innerHTML="";
   getDataByPage();
 })
+
+
+
+
+
+
