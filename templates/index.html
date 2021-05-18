@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <title>Taipei-Trip-台北一日遊</title>
-    <link rel="stylesheet" href="{{url_for('static', filename = 'styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'index.css')}}">
 
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,7 +21,7 @@
 <body>
     <section class=navSection>
         <nav>
-            <h1 class="navTitle" id="navTitle">台北一日遊</h1>
+            <h1 onclick="location.href='/';" class="navTitle" id="navTitle">台北一日遊</h1>
             <ul class="navBtn">
               <li>預定行程</li>
               <li>登入/註冊</li>
@@ -29,6 +29,7 @@
         </nav>
     </section>
 
+    <main class="main-content">
 
     <section class="hero">
         <div class="slogan-search-container">
@@ -54,13 +55,16 @@
     <section class="attractions" id="attractions">
 
     </section>
+
+    </main>
+
     <footer>
         <div id="footer">
             COPYRIGHT © 2021 台北一日遊   
         </div>
     </footer>
   
-    <script src="{{url_for('static',filename = 'script.js')}}" charset="utf-8"></script>
+    <script src="{{url_for('static',filename = 'index.js')}}" charset="utf-8"></script>
     
     
 </body>
