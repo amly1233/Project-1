@@ -376,7 +376,7 @@ display: block;
 
 .attractionInfors{
     max-width: 1200px;
-    height:362px;
+    /* height:362px; */
     margin: auto;
     color: #666666;
     padding: 10px;
