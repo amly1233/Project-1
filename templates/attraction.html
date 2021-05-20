@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>景點資訊</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename = 'attraction.css')}}"
+    />
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+TC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='img/favicon.ico') }}"
+    />
+  </head>
+
+  <body>
+    <section class="navSection">
+      <nav>
+        <h1 onclick="location.href='/';" class="navTitle" id="navTitle">台北一日遊</h1>
+        <ul class="navBtn">
+          <li>預定行程</li>
+          <li>登入/註冊</li>
+        </ul>
+      </nav>
+    </section>
+
+    <hr class="separator" id="navSeparator" />
+
+    <main class="main-content">
+      
+
+      <section class="attractionProfile">
+        <div class="profileImg">
+
+          <!-- <div class="carousel_item carousel_item_visible">
+          </div> -->
+
+          <!-- <div class="carousel_item">
+            <img src="" alt="">
+          </div> -->
+
+          <div class = carouselArrow>
+              <img class = "arrow" id ="leftArrow" src="{{url_for('static',filename = 'img/btn_leftArrow.png')}}" alt="">
+              <img class = "arrow" id ="rightArrow" src="{{url_for('static',filename = 'img/btn_rightArrow.png')}}" alt="">
+          </div>
+
+        </div>
+
+        <div class = "profile">
+            <div class = "profileInfo">
+                <!-- <div class = "profileName">平安鐘</div> 
+                <div class = "profileCategory">公共藝術 at 忠孝復興</div>  -->
+            </div>
+
+            <form class = "bookingForm">
+                <p class="bookingTitle">訂購導覽行程</p>
+                <p class="bookingSlogan"> 以此景點為中心的一日行程，帶您探索城市角落故事</p>
+                
+                <div class="date-section">
+                    <span class="bookingDate"> 選擇日期：</span>
+                    <input type="date" class = "inputDate">
+                </div>
+
+                <div class="time-section">
+                    <span class="bookingTime"> 選擇時間：</span>
+
+                    <label class="selectRadio"> 上半天
+                        <input type="radio" checked="checked" name="radio" class="selectTime" id = "morning">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="selectRadio"> 下半天
+                        <input type="radio" name="radio" class="selectTime" id = "afternoon"> 
+                        <span class="checkmark"></span>
+                    </label>
+                
+                </div>
+                
+                <div class="fee-section">
+                    <span class="bookingFee">導覽費用：</span>
+                    <span class="price" id="price20">新台幣 2000 元</span>
+                    <span class="price" id="price25">新台幣 2500 元</span>
+                </div>
+                
+                <button class="bookingBtn">開始預定行程</button>
+
+            </form>
+        </div>
+
+
+      </section>
+
+      <hr class="separator" id="mainSeparator" />
+
+      <section class="attractionInfors">
+
+        <div class="description">
+            <!-- 北投溫泉從日據時代便有盛名，深受喜愛泡湯的日人自然不會錯過，瀧乃湯、星乃湯、鐵乃湯就是日本人依照溫泉的特性與療效給予的名稱，據說對皮膚病、神經過敏、氣喘、風濕等具有很好的療效，也因此成為了北部最著名的泡湯景點之一。新北投溫泉的泉源為大磺嘴溫泉，泉質屬硫酸鹽泉，PH值約為3~4之間，水質呈黃白色半透明，泉水溫度約為50-90℃，帶有些許的硫磺味 。目前北投的溫泉旅館、飯店、會館大部分集中於中山路、光明路沿線以及北投公園地熱谷附近，總計約有44家，每一家都各有其特色，多樣的溫泉水療以及遊憩設施，提供遊客泡湯養生，而鄰近的景點也是非常值得造訪，例如被列為三級古蹟的三寶吟松閣、星乃湯、瀧乃湯以及北投第一家溫泉旅館「天狗庵」，都有著深遠的歷史背景，而北投公園、北投溫泉博物館、北投文物館、地熱谷等，更是遊客必遊的景點，來到北投除了可以讓溫泉洗滌身心疲憊，也可以順便了解到北投溫泉豐富的人文歷史。 -->
+        </div>
+
+
+        <div class="address">
+            <h3 class="infors">景點地址：</h3>
+            <!-- <p class="info-content">臺北市  北投區中山路、光明路沿線</p> -->
+        </div>
+   
+        <div class="transport">
+            <h3 class="infors">交通方式：</h3>
+            <!-- <p class="info-content">新北投站下車，沿中山路直走即可到達公車：216、218、223、230、266、602、小6、小7、小9、、小22、小25、小26至新北投站下車</p> -->
+        </div>
+
+        
+
+
+      </section>
+    </main>
+
+    <footer>
+      <div id="footer">COPYRIGHT © 2021 台北一日遊</div>
+    </footer>
+
+    <script src="{{url_for('static',filename = 'attraction.js')}}" charset="utf-8"></script>
+  </body>
+</html>

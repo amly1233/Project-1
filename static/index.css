@@ -52,6 +52,11 @@ nav{
     cursor:pointer;
 } 
 
+/* main content */
+.main-content{
+    min-height: 100%;
+}
+
 /* hero section */
 .hero{
     background: linear-gradient(135deg, #AADDEE 0%,#66AABB 100%);
@@ -174,16 +179,6 @@ input:focus::placeholder{
 .attractionImg{
     width:268px;
     height:160px;
-    /* max-width:auto;
-    max-height:75%; */
-
-    /* width: 100% */
-    /* object-fit: cover; */
-    /* overflow: hidden; */
-    /* text-align: justify; */
-
-    /* display: inline-block;
-    position: relative */
     overflow: hidden;
   
   }
@@ -209,6 +204,13 @@ input:focus::placeholder{
   }
 
 
+a{
+    text-decoration: none;
+}
+
+
+
+
 
 
 /* footer */
@@ -219,7 +221,7 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    position:relative;
+    position:sticky;
     bottom: 0;
     left: 0;
     right: 0;

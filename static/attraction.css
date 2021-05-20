@@ -1,0 +1,506 @@
+*{
+    background:#FFFFFF;
+    font-family: 'Noto Sans TC', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* nav */
+.navSection{
+    position: sticky;
+    background-color: #FFFFFF;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+nav{
+    margin: auto;
+    max-width:1200px;
+    height: 54px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navTitle{
+    color: #448899;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight:700;
+    font-size: 30px;
+    line-height: 83%;
+    padding: 0 5%;
+    cursor:default;
+}
+
+.navBtn{
+    color:#666666;
+    font-size: 16px;
+    line-height: 57%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    text-align: left;
+}
+
+.navBtn li{
+    list-style: none;
+    padding: 20px;
+    cursor:pointer;
+} 
+
+/* main content */
+.main-content{
+    min-height: 100%;
+}
+
+/* footer */
+footer{
+    margin:0;
+    background-color: #757575;
+    height: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+#footer{
+    background-color: #757575;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 13.3px;
+    font-weight: 700;
+}
+
+
+
+
+
+
+/* Attraction Profile */
+.separator{
+    border: 1px solid #E8E8E8;
+}
+
+#navSeparator{
+    width:100%;
+    margin-bottom: 40px;
+}
+
+
+#mainSeparator{
+    max-width: 1200px;
+    margin: 40px auto 50px;  
+    /* margin-bottom: 50px; */
+    /* let hr center  */
+}
+
+.attractionProfile{
+    max-width: 1200px;
+    height:400px;
+    margin:auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.profileImg{
+    width: 540px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+    /* background-image: url("http://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000848.jpg"); */
+    /* background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px; */
+    
+}
+
+
+.carousel_item_visible, .carousel_item{
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    /* border-radius: 5px; */
+}
+
+.carousel_item, .carousel_item_hidden{
+    display: none;
+
+}
+
+
+.profileImg, .carousel_item_visible {
+    display: block;
+    animation: fadeVisibility 0.5s;
+}
+.profileImg, .carousel_item, img {
+    /* width: 100%; */
+    max-width: 540px;
+    /* height: auto; */
+    border-radius: 5px;
+    align-items: center;
+
+    max-height: 400px;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+
+
+/* ????? */
+@keyframes fadeVisibility {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: opacity linear;
+    }
+  }
+
+
+.carouselArrow{
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* position: absolute; */
+    /* top:50%; */
+}
+
+.arrow{
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    opacity: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top:50%;
+}
+
+
+#leftArrow{
+    left:10px;
+}
+
+#rightArrow{
+    right:10px;
+}
+
+
+.arrow:hover{
+    opacity: 75%;
+}
+
+
+.profile{
+    width: 600px;
+    height: 400px;
+    color:#666666;
+    /* display: flex; */
+}
+
+.profileName{
+    font-size: 24px;
+    font-weight: 700;
+    width: 600px;
+    height: 33px;
+    margin-bottom: 15px;
+
+}
+
+
+.profileCategory{
+    width: 600px;
+    height: 22px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+
+.bookingForm{
+    width: 600px;
+    height: 302px;
+    background: #E8E8E8;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.bookingTitle, .bookingSlogan, .date-section, .time-section, .fee-section, .bookingBtn{
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+.bookingDate , .bookingTime , .bookingFee{
+    background-color: transparent;
+    font-weight: 700;
+}
+.selectRadio, .price{
+    background-color: transparent;
+}
+
+.bookingTitle{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.bookingSlogan{
+    font-size: 16px;
+}
+
+.inputDate{
+    width: 193px;
+    height: 35px;
+}
+
+
+/* radio setting TEDIOUS! */
+
+.selectRadio{
+    margin-left: 12px;
+    margin-right: 28px;
+}   
+
+/* Hide the browser's default radio button */
+input[type="radio"] {
+    /* display:none; */
+    width: 4px;
+    visibility: hidden;
+}
+
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+
+
+/* On mouse-over, add a grey background color */
+.selectRadio:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+    
+/* When the radio button is checked, add a white background */
+/* .selectRadio input:checked ~ .checkmark {
+background-color: white;
+} */  
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+    
+/* Show the indicator (dot/circle) when checked */
+.selectRadio input:checked ~ .checkmark:after {
+display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.selectRadio .checkmark:after {
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #448899;
+}
+
+
+
+
+
+
+#price25{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bookingBtn{
+    background-color: #448899;
+    border: solid 2px #448899 ;
+    border-radius: 5px;
+    padding: 8px 18px;
+    width: 154px;
+    height: 36px;
+    color:#FFFFFF;
+    font-size: 19px;
+    line-height: 16px;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+.bookingBtn:hover{
+    background-color:#337788;
+}
+
+
+
+
+.attractionInfors{
+    max-width: 1200px;
+    /* height:362px; */
+    margin: auto;
+    color: #666666;
+    padding: 10px;
+    font-size: 16px;
+
+}
+
+.infors{
+    font-weight: 700;
+}
+
+
+
+.info-content, .address, .transport, .description{
+    margin-bottom: 20px;
+}
+
+.info-content{
+    line-height: 24px;
+}
+
+
+
+
+
+
+
+
+/* pad 600px~1200px > 2 col > stretch */
+@media (max-width: 1200px) {
+    /* Attraction Profile */
+    .attractionProfile{
+        flex-direction: column;
+        height:auto;
+    }
+
+    .profile{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+    .profileName, .profileCategory, .bookingForm{
+        width:540px;
+
+    }
+
+    .attractionInfors{
+        /* margin: 10px; */
+        height: auto;
+        width:580px;
+    }
+
+
+    #mainSeparator{
+        margin: 40px 10px 50px;
+    }
+
+}
+
+
+
+/* Phone <=600px > 1 col > stretch  */
+@media (max-width: 600px) {
+    /* nav */
+    .navTitle{
+        padding: 0 0 0 0.5%;
+        min-width: 55%;
+        
+    }
+    
+    .navBtn{
+        justify-content: flex-end;
+        min-width: 45%;
+        padding: 0;
+
+    }
+
+    .navBtn > li{
+        padding: 20px 3%;
+    }
+
+
+    /* Attraction Profile */
+    .arrow{
+        margin: 0 10px;
+    }
+    .profileImg{
+        margin: 0;
+        overflow: hidden;
+        max-width:80%;
+        height: auto;
+
+    }
+
+
+
+    .profileName, .profileCategory, .bookingForm{
+        width:350px;
+        height: auto;
+    }
+
+    .attractionInfors{
+        width:80%;
+        height:auto;
+    }
+
+
+
+}
+
+@media (max-width: 340px){
+    .navTitle{
+        font-size: 25px;
+    }
+
+    .navBtn{
+        font-size: 13px;
+    }
+
+    .profileName, .profileCategory, .bookingForm{
+        width:300px;
+        height: auto;
+    }
+
+}
