@@ -42,7 +42,7 @@ function getDataByPage(){
         let container=document.createElement("div");
         container.className="attractionContainer";
 
-        // Create a link for each spot
+        // Create a link for each spot  
         let spotlink = document.createElement("a");
         spotlink.href =  "/attraction/"+result["data"][i]["id"];
   
@@ -95,6 +95,8 @@ btn.addEventListener('click',(event)=>{
   document.getElementById('attractions').innerHTML="";
   getDataByPage();
 })
+
+
 
 
 

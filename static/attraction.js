@@ -179,12 +179,6 @@ function getImg(){
         toPrevSlide();
       });
       
-      
-
-
-
-     
-
 
     });
 }
