@@ -1,0 +1,223 @@
+.booking-main-content{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.member-welcome{
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 35px;
+    margin-left: 10px;
+}
+
+.cart, .booking-main-content{
+    margin-bottom: 40px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+#mainSeparator{
+    margin: 40px auto;
+    border: 1px solid #E8E8E8;
+    width: 1200px;
+}
+
+/* booking info */
+
+.booking-info{
+    width: 980px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.booking-img{
+    /* width: 266px; */
+    height: 200px;
+    overflow: hidden;
+}
+
+.booking-form{
+    width: 700px;
+    font-size: 16px;
+    line-height: 13px;
+    margin-left: 25px;
+}
+
+.icon-delete{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.delete-img{
+    position: relative;
+    left: 660px;
+}
+
+.booking-title, #booking-title{
+    color:#448899;
+    margin-bottom: 30px;
+
+}
+
+.booking-detail{
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.booking-detail-info{
+    font-weight: 400;
+}
+
+
+/* contant info */
+.contact-pmt-form{
+    width: 980px;
+    margin: auto;
+}
+
+.contact-title, .payment-title{
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 16px;
+    margin-bottom: 25px;
+}
+
+.contact-pmt-detail{
+    font-size: 16px;
+    line-height: 13px;
+    margin-bottom: 20px;
+}
+
+.booking-input{
+    width: 200px;
+    height: 38px;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+  
+}
+
+.contact-notice{
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+
+
+
+
+
+/* payment info */
+
+
+
+
+/* confirm form  */
+.confirm-form{
+    width: 980px;
+    margin: auto;
+
+    text-align: end;
+}
+
+.total-price{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 13px;
+    margin-bottom: 25px;
+}
+
+
+.confirmPayBtn{
+    background-color: #448899;
+    border: solid 2px #448899 ;
+    border-radius: 5px;
+    padding: 8px 18px;
+    width: 173px;
+    height: 36px;
+    color:#FFFFFF;
+    font-size: 19px;
+    line-height: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 60px;
+}
+
+
+
+
+/* pad 600px~1200px */
+@media (max-width: 1200px){
+    .booking-info, #mainSeparator, .contact-pmt-form, .confirm-form{
+        max-width: 80%;
+    }
+    .booking-info{
+        height: auto;
+        flex-direction: column;
+        margin: auto;
+    
+    }
+    .booking-img, .booking-form{
+        height: auto;
+    }
+
+    .booking-form{
+        width: 80%;
+        margin-top: 8%;
+    }
+    
+    .delete-img{
+        position: relative;
+        left: 95%;
+        top: 130px;
+
+    }
+
+    .booking-detail{
+        line-height: normal;
+    }
+
+
+
+
+
+
+
+}
+
+
+
+/* Phone <=600px   */
+@media (max-width: 600px){
+    .booking-info, #mainSeparator, .contact-pmt-form, .booking-form, .confirm-form{
+        max-width: 90%;
+    }
+
+    .booking-img{
+        max-width: 90%;
+        width: 340px;
+        height: 256px;
+        border-radius: 5px;
+
+    }
+    
+}
+
+
+@media (max-width: 340px){
+    .booking-title{
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .booking-detail{
+        font-size: 13px;
+        line-height: 15px;
+    }
+}
+
+
