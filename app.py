@@ -7,6 +7,10 @@ from mysql.connector import Error
 
 from routes.attraction_api import attraction_api
 from routes.user_api import user_api
+from routes.booking_api import booking_api
+from routes.orders_api import orders_api
+
+
 
 app=Flask(
   __name__,
@@ -66,6 +70,10 @@ def thankyou():
 app.register_blueprint(attraction_api)
 # Users APIs
 app.register_blueprint(user_api)
+# Booking APIs
+app.register_blueprint(booking_api)
+# Orders APIs
+app.register_blueprint(orders_api)
 
 
 

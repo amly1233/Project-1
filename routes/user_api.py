@@ -25,9 +25,10 @@ mycursor = mydb.cursor()
 def get_user():
     try:
         if 'email' in session: 
-            userid = session.get('id')
-            name = session.get('name')
-            email = session.get('email')
+    
+            userid = session['id']
+            name = session['name']
+            email = session['email']
 
             user = {
                 "data": {
@@ -57,11 +58,14 @@ def get_user():
 def signup():
     try:
         request_data = request.get_json()
-                
-        name = request_data['signupName']
-        email = request_data['signupEmail']
-        password = request_data['signupPassword']
-   
+
+        name = request_data['name']
+        email = request_data['email']
+        password = request_data['password']
+
+        if not (name and email and password):
+            return jsonify({ "error": True, "message": "資料不得為空" })
+
         sql = "SELECT EXISTS(SELECT email FROM user_account WHERE email = %s);"
         checkemail = (email, )
         mycursor.execute(sql, checkemail)
@@ -104,13 +108,11 @@ def signup():
 @user_api.route("/api/user", methods=['PATCH'])
 def signin():
     try:
+    
         login_data = request.get_json()
 
         email = login_data['signinEmail']
         password = login_data['signinPassword']
-
-        print (email)
-        print (password)
 
         if not (email and password):
             return jsonify({ "error": True, "message": "登入失敗，帳號、密碼不得為空" })
@@ -163,8 +165,19 @@ def signout():
         session.pop('name', None)
         session.pop('email', None)
         session.pop('password', None)
+
+        # Delete ALL session
+        session.pop('attractionId', None)
+        session.pop('date', None)
+        session.pop('time', None)
+        session.pop('price', None)
+
         return jsonify({"ok":True})
     except:
         return jsonify({
             "error": True, 
             "message": "伺服器錯誤"})
+
+
+
+

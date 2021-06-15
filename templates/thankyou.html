@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- 手機的瀏覽器不要對網頁做任意縮放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Taipei-Trip-台北一日遊</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'index.css')}}">
+    
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet"> 
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+
+
+</head>
+<body>
+
+    
+    <section class=navSection>
+        <nav>
+            <h1 onclick="location.href='/';" class="navTitle" id="navTitle">台北一日遊</h1>
+            <ul class="navBtn">
+              <li onclick="location.href='/booking';">預定行程</li>
+              <li onclick="signin();" class="signin-nav">登入/註冊</li>
+              <li onclick="usersignout();" class="signout-nav">登出系統</li>
+
+            </ul>
+        </nav>
+    </section>
+    <div id="popup_overlay" >
+    <div class="signin">
+        <div class="decoeator-bar"></div>
+        <img onclick="closePopup();" src="{{url_for('static',filename = 'img/icon_close.png')}}"  class="icon-close" alt="">
+        <div class="main-signin">
+          <h3 class="signin-signup-title">登入會員帳號</h3>
+          <input type="email" placeholder="輸入電子信箱" name='signinEmail' class="signin-signup-input" id="signinEmail" >
+          <input type="password" placeholder="輸入密碼" name='signinPassword' class="signin-signup-input" id="signinPassword" >
+          <br>
+          <button type="submit" onclick="usersignin();" class="signin-signup-btn">登入帳戶</button>
+          <p id="signin-message"></p>
+          <p onclick="signup();" class="signin-signup-text">還沒有帳戶？點此註冊</p>
+  
+        </div>
+    </div>
+
+
+    <div class="signup">
+        <div class="decoeator-bar"></div>
+        <img onclick="closePopup();" src="{{url_for('static',filename = 'img/icon_close.png')}}"  class="icon-close" alt="">
+        <div class="main-signup">
+            <h3 class="signin-signup-title">註冊會員帳號</h3>
+            <input type="text" placeholder="輸入姓名" name="signupName"  class="signin-signup-input" id="signupName">
+            <input type="email" placeholder="輸入電子信箱" name="signupEmail" class="signin-signup-input" id="signupEmail">
+            <input type="password" placeholder="輸入密碼" name="signupPassword" class="signin-signup-input" id="signupPassword">
+            <br>
+            <button type="submit" onclick="usersignup();" class="signin-signup-btn">註冊新帳戶</button>
+            <p id="signup-message"></p>
+            <p onclick="signin();" class="signin-signup-text">已經有帳戶了？點此登入</p>
+
+        </div>
+    </div>
+
+
+    
+    </div>
+    <hr class="separator" id="navSeparator" />
+    <section class = "thankyou">
+        <div class = "thx-box">
+            <h2 class="thx-text" id ="finished-text">訂購完成</h2>
+            <p class="thx-text" id = "notice-text">請留意手機及信箱，我們會盡快與您聯繫。</p>
+        </div>
+    </section>
+    
+    <!-- <section class="hero">
+        <div class="slogan-search-container">
+        <div class="slogan-container">
+            <h2 class="slogan" id="slogan1">訂購完成</h2>
+            <p class="slogan" id="slogan2">請留意手機及信箱，我們會盡快與您聯繫。</p>
+        </div>
+        </div>
+        <img id ="memorialＨall" src="{{url_for('static',filename = 'img/welcome.png')}}" alt=""> 
+
+        
+    </section> -->
+
+    <!-- <hr class="separator" id="navSeparator" />
+
+
+    <hr class="separator" id="mainSeparator" /> -->
+
+
+    <footer>
+        <div id="footer">
+            COPYRIGHT © 2021 台北一日遊   
+        </div>
+    </footer>
+  
+
+    <script src="{{url_for('static',filename = 'login.js')}}" charset="utf-8"></script>
+
+
+
+    
+    
+</body>
+</html>

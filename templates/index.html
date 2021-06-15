@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <title>Taipei-Trip-台北一日遊</title>
+
+    <!-- css link  -->
     <link rel="stylesheet" href="{{url_for('static', filename = 'index.css')}}">
 
     <!-- google font -->
@@ -19,50 +21,54 @@
 
 </head>
 <body>
+    
     <section class=navSection>
         <nav>
             <h1 onclick="location.href='/';" class="navTitle" id="navTitle">台北一日遊</h1>
             <ul class="navBtn">
-              <li>預定行程</li>
-              <li onclick="signin();" class="signinsignup">登入/註冊</li>
+              <li onclick="location.href='/booking';">預定行程</li>
+              <li onclick="signin();" class="signin-nav">登入/註冊</li>
+              <li onclick="usersignout();" class="signout-nav">登出系統</li>
+
             </ul>
         </nav>
     </section>
-
-    <section class="signin">
+    <div id="popup_overlay" >
+    <div class="signin">
         <div class="decoeator-bar"></div>
         <img onclick="closePopup();" src="{{url_for('static',filename = 'img/icon_close.png')}}"  class="icon-close" alt="">
-        <form action='/api/user' method="PATCH" class="main-signin">
+        <div class="main-signin">
           <h3 class="signin-signup-title">登入會員帳號</h3>
           <input type="email" placeholder="輸入電子信箱" name='signinEmail' class="signin-signup-input" id="signinEmail" >
           <input type="password" placeholder="輸入密碼" name='signinPassword' class="signin-signup-input" id="signinPassword" >
           <br>
           <button type="submit" onclick="usersignin();" class="signin-signup-btn">登入帳戶</button>
-          <p class="signin-message"></p>
+          <p id="signin-message"></p>
           <p onclick="signup();" class="signin-signup-text">還沒有帳戶？點此註冊</p>
   
-        </form>
-      </section>
-
-      <section class="pop-up">
-        <div class="signup">
-            <div class="decoeator-bar"></div>
-            <img onclick="closePopup();" src="{{url_for('static',filename = 'img/icon_close.png')}}"  class="icon-close" alt="">
-            <form action='/api/user' method="POST" class="main-signup">
-              <h3 class="signin-signup-title">註冊會員帳號</h3>
-              <input type="text" placeholder="輸入姓名" name="signupName"  class="signin-signup-input" id="signupName">
-              <input type="email" placeholder="輸入電子信箱" name="signupEmail" class="signin-signup-input" id="signupEmail">
-              <input type="password" placeholder="輸入密碼" name="signupPassword" class="signin-signup-input" id="signupPassword">
-              <br>
-              <button type="submit" onclick="usersignup();" class="signin-signup-btn">註冊新帳戶</button>
-              <p class="signup-message"></p>
-              <p onclick="signin();" class="signin-signup-text">已經有帳戶了？點此登入</p>
-      
-            </form>
         </div>
-      </section>
+    </div>
+
+
+    <div class="signup">
+        <div class="decoeator-bar"></div>
+        <img onclick="closePopup();" src="{{url_for('static',filename = 'img/icon_close.png')}}"  class="icon-close" alt="">
+        <div class="main-signup">
+            <h3 class="signin-signup-title">註冊會員帳號</h3>
+            <input type="text" placeholder="輸入姓名" name="signupName"  class="signin-signup-input" id="signupName">
+            <input type="email" placeholder="輸入電子信箱" name="signupEmail" class="signin-signup-input" id="signupEmail">
+            <input type="password" placeholder="輸入密碼" name="signupPassword" class="signin-signup-input" id="signupPassword">
+            <br>
+            <button type="submit" onclick="usersignup();" class="signin-signup-btn">註冊新帳戶</button>
+            <p id="signup-message"></p>
+            <p onclick="signin();" class="signin-signup-text">已經有帳戶了？點此登入</p>
+    
+        </div>
+    </div>
+
 
     
+    </div>
 
     <main class="main-content">
 
@@ -101,6 +107,11 @@
   
     <script src="{{url_for('static',filename = 'index.js')}}" charset="utf-8"></script>
     <script src="{{url_for('static',filename = 'login.js')}}" charset="utf-8"></script>
+    <script src="{{url_for('static',filename = 'booking.js')}}" charset="utf-8"></script>
+
+
+   
+
 
     
 </body>
