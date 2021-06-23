@@ -69,6 +69,10 @@
     margin-bottom: 20px;
 }
 
+#booking-address{
+    line-height: normal;
+}
+
 .booking-detail-info{
     font-weight: 400;
 }

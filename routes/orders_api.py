@@ -24,9 +24,8 @@ mycursor = mydb.cursor()
 @orders_api.route("/api/orders", methods=['POST'])
 def get_order():
     try:
-        print ("ok1")
         request_data = request.get_json()
-        print ("ok2")
+
         userId = session['id']
         userName = session['name']
         userEmail = session['email']
@@ -36,17 +35,15 @@ def get_order():
         contactName = request_data['contactName']
         contactEmail = request_data['contactEmail']
         contactNumber =  request_data['contactNumber']
-        print ("ok3")
+
 
         if not (contactName and contactEmail and contactNumber):
           return jsonify({ "error": True, "message": "聯絡資料不得為空" })
 
         else:
-          print ("ok4")
           sql = "INSERT INTO booking_info (userId, userName, userEmail, bookingAttractionId, bookingDate, bookingPrice, contactName, contactEmail, contactNumber) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);"
           new_data = (userId, userName, userEmail, bookingAttractionId, bookingDate, bookingPrice, contactName, contactEmail, contactNumber)
           mycursor.execute(sql, new_data)
-          print ("ok5")
 
           # 確認資料有存入資料庫
           mydb.commit()
