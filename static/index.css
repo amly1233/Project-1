@@ -109,12 +109,16 @@ nav{
     color:#F8F8F8
 
 }
+/* .slogan{
+    text-shadow: 0.1em 0.1em 0.2em white;
+} */
 #slogan1{
     font-size: 28px;
     font-weight: 700;
     line-height: 24px;
     text-align: left;
     padding-bottom: 15px;
+
     
 }
 

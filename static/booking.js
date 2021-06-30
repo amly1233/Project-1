@@ -1,13 +1,3 @@
-// function getUserName(){
-//     fetch("/api/user").then(function(response){
-//         return response.json()
-//     }).then(function(user_result){
-//         console.log(user_result)
-//         let username = user_result['data']['name'];
-//         document.querySelector('#member-name').textContent = username;
-
-//     })
-// }
 
 function booking(){
     let booking_date = document.querySelector(".inputDate").value;
@@ -46,6 +36,8 @@ function booking(){
             getBookingInfo();
         }else if (bookingFailed){
             alert (result['message']);
+            
+
         }else {
             alert ("ERROR");
         }
