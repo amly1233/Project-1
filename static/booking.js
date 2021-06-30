@@ -36,7 +36,7 @@ function booking(){
             getBookingInfo();
         }else if (bookingFailed){
             alert (result['message']);
-            window.location.href = '/booking';
+            
 
         }else {
             alert ("ERROR");
